@@ -5,10 +5,16 @@
  */
 package inc.monsters.tasklist.model.entity;
 
+import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import lombok.Data;
 
 /**
@@ -17,12 +23,13 @@ import lombok.Data;
  */
 @Entity
 @Data
-public class Tasklist {
+@Table(name = "tasklists")
+public class Tasklist implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String description;
-//    @OneToMany(mappedBy = "Tasklist", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    private List<Task> tasks;
+    @OneToMany(mappedBy = "tasklist", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Task> tasks;
 }
