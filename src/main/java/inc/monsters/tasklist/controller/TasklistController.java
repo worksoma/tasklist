@@ -7,6 +7,7 @@ package inc.monsters.tasklist.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  *
@@ -15,8 +16,15 @@ import org.springframework.ui.Model;
 @Controller
 public class TasklistController {
     
-    public String tasklistForm(Model model) {
-        return "tasklistForm";
-    }
+//    @GetMapping("/manageTasklists")
+//    public String tasklistForm(Model model) {
+//        return "tasklistForm";
+//    }
+//    
+//    @GetMapping("/manageTasklists")
+//    public String addTasklist(Model model) {
+//        
+//        return "index";
+//    }
     
 }

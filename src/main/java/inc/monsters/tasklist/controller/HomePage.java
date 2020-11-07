@@ -22,15 +22,4 @@ public class HomePage {
         
         return "index";
     }
-    
-    @GetMapping("/welcome")
-    public String welcome(Model model) {
-        String crazy="crazy town";
-        System.out.println("welcome");
-        
-        model.addAttribute("welcome", "here is a message");
-        model.addAttribute("ct", crazy);
-        
-        return "newthymeleaf";
-    }
 }
