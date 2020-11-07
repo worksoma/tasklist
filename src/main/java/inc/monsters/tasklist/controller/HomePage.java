@@ -6,6 +6,7 @@
 package inc.monsters.tasklist.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
@@ -16,9 +17,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomePage {
     
     @GetMapping("/")
-    public String homePage() {
+    public String home(Model model) {
         System.out.println("testing");
         
         return "index";
+    }
+    
+    @GetMapping("/welcome")
+    public String welcome(Model model) {
+        String crazy="crazy town";
+        System.out.println("welcome");
+        
+        model.addAttribute("welcome", "here is a message");
+        model.addAttribute("ct", crazy);
+        
+        return "newthymeleaf";
     }
 }
