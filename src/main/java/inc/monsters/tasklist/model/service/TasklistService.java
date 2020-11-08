@@ -6,6 +6,8 @@
 package inc.monsters.tasklist.model.service;
 
 import inc.monsters.tasklist.model.repository.TasklistRepository;
+import inc.monsters.tasklist.model.entity.Tasklist;
+import java.util.List;
 import org.springframework.stereotype.Service;
 
 /**
@@ -20,10 +22,7 @@ public class TasklistService {
         this.tasklistRepository = tasklistRepository;
     }
     
-    // Add Tasklist
-    
-    // Edit Tasklist
-    
-    // Delete Tasklist (logic: prevent Tasklist with tasks from being deleted)
-    
+    public List<Tasklist> findAll() {
+        return tasklistRepository.findAll();
+    }
 }

@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>TODO supply a title</title>
@@ -13,6 +7,19 @@ and open the template in the editor.
         <link rel='stylesheet' href='/webjars/bootstrap/css/bootstrap.min.css'>
     </head>
     <body>
-        <div>TODO write content</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>here there</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="tasklist : ${tasklists}">
+                    <td><span th:text="${tasklist.title}"/></td>
+                </tr>
+            </tbody>
+        </table>
     </body>
+    
+    <p><a href="tasklistMgmt">Tasklist Management</a></p>
 </html>

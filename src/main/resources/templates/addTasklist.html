@@ -15,7 +15,15 @@ and open the template in the editor.
     </head>
 
     <body>
-        <p th:text="#{welcome}">Welcome!</p>
+        <table>
+            <tr>
+                <th>here</th>
+            </tr>
+            <tr th:each="tasklist : ${tasklists}">
+                <td th:text="${tasklist.title}">title
+                </td>
+            </tr>
+        </table>
     </body>
 
 </html>

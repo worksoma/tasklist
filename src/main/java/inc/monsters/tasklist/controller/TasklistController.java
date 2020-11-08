@@ -5,9 +5,12 @@
  */
 package inc.monsters.tasklist.controller;
 
+import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import inc.monsters.tasklist.model.entity.Tasklist;
+import inc.monsters.tasklist.model.service.TasklistService;
 
 /**
  *
@@ -16,15 +19,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class TasklistController {
     
-//    @GetMapping("/manageTasklists")
-//    public String tasklistForm(Model model) {
-//        return "tasklistForm";
-//    }
-//    
-//    @GetMapping("/manageTasklists")
-//    public String addTasklist(Model model) {
-//        
-//        return "index";
-//    }
+private List<Tasklist> tasklists;
+    private TasklistService tasklistService;
+
+    public TasklistController(TasklistService tasklistService) {
+        this.tasklistService = tasklistService;
+    }
     
+    @GetMapping("/tasklistMgmt")
+    public String TasklistListing(Model model) {
+        List<Tasklist> list = tasklistService.findAll();
+        model.addAttribute("tasklists", list);
+        
+        return "addTasklist";
+    }
 }
