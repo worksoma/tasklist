@@ -1,29 +1,25 @@
-<!DOCTYPE html>
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
     <head>
-        <title>Welcome!</title>
+        <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-        <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
-        <link rel="stylesheet" th:href="@{/css/main.css}"/>
     </head>
 
     <body>
-        <table>
-            <tr>
-                <th>here</th>
-            </tr>
-            <tr th:each="tasklist : ${tasklists}">
-                <td th:text="${tasklist.title}">title
-                </td>
-            </tr>
-        </table>
+        <form th:action="@{}" th:object="${}" method="post">
+            <p>
+                title: <input type="text" th:field="*{title}"/>
+            </p>
+            <p>
+                description: <input type="text" th:field="*{description}"/>
+            </p>
+        </form>
     </body>
 
 </html>

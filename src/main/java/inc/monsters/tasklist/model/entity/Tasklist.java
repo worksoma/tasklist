@@ -16,11 +16,13 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author tcurtis
  */
+@Component
 @Entity
 @Data
 @Table(name = "tasklists")

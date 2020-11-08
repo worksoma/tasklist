@@ -25,4 +25,8 @@ public class TasklistService {
     public List<Tasklist> findAll() {
         return tasklistRepository.findAll();
     }
+    
+    public void save(Tasklist tasklist) {
+        tasklistRepository.save(tasklist);
+    }
 }
