@@ -15,12 +15,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author tcurtis
  */
 @Entity
+@Component
 @Data
 @Table(name = "tasks")
 public class Task implements Serializable {

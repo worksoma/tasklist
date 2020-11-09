@@ -20,4 +20,8 @@ public class TaskService {
     public List<Task> findByTasklistId(Long id) {
         return taskRepository.findByTasklistId(id);
     }
+    
+    public void save(Task task) {
+        taskRepository.save(task);
+    }
 }

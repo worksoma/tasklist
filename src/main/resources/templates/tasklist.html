@@ -16,6 +16,24 @@ and open the template in the editor.
 
     <body>
         Tasklist:
+        <table>
+            <tr>
+                <th>here</th>
+            </tr>
+            <tr th:each="task : ${tasks}">
+                <td th:text="${task.title}">title
+                </td>
+            </tr>
+        </table>
+        
+        <form th:action="@{/tasklist}" th:object="${taskForm}" method="post">
+            <p>
+                title: <input type="text" th:field="*{title}"/>
+            </p>
+            <p>
+                <input type="submit" value="Submit"/>
+            </p>
+        </form>
     </body>
 
 </html>
