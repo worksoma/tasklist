@@ -15,7 +15,9 @@
             </thead>
             <tbody>
                 <tr th:each="tasklist : ${tasklists}">
-                    <td><a th:href="@{/tasklist(id='3')}"><span th:text="${tasklist.title}"/></a></td>
+                    <td>
+                        <a th:href="@{/tasklist(id=${tasklist.id})}"><span th:text="${tasklist.title}"/></a>
+                    </td>
                 </tr>
             </tbody>
         </table>
