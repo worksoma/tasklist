@@ -9,17 +9,13 @@ and open the template in the editor.
     <head>
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/css/main.css}"/>
     </head>
 
     <body>
-        <form th:action="@{}" th:object="${}" method="post">
-            <p>
-                title: <input type="text" th:field="*{title}"/>
-            </p>
-            <p>
-                description: <input type="text" th:field="*{description}"/>
-            </p>
-        </form>
+        Tasklist:
     </body>
 
 </html>
