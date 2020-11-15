@@ -17,5 +17,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
 @Repository
 public interface TaskRepository extends JpaRepository<Task, Long> {
     public List<Task> findByTasklistId(Long id);
-    public void detachTask(Long id);
 }

@@ -56,6 +56,7 @@ public class TasklistController {
     }
     
     private Task toEntity(TaskForm taskForm) {
+        task.setId(taskForm.getId());
         task.setTitle(taskForm.getTitle());
         task.setTasklist(tasklistService.getOne(taskForm.getTasklistId()));
         

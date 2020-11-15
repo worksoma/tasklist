@@ -25,8 +25,4 @@ public class TaskService {
     public void save(Task task) {
         taskRepository.save(task);
     }
-    
-    public void detachTask(Long id) {
-        taskRepository.detachTask(id);
-    }
 }
