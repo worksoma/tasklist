@@ -5,9 +5,8 @@
  */
 package inc.monsters.tasklist.model.repository;
 
-import org.springframework.data.repository.CrudRepository;
 import inc.monsters.tasklist.model.entity.Tasklist;
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -15,6 +14,5 @@ import org.springframework.stereotype.Repository;
  * @author tcurtis
  */
 @Repository
-public interface TasklistRepository extends CrudRepository<Tasklist, Long> {
-    List<Tasklist> findAll();
+public interface TasklistRepository extends JpaRepository<Tasklist, Long> {
 }

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class TaskService {
     private TaskRepository taskRepository;
+    private TasklistService tasklistService;
 
     public TaskService(TaskRepository taskRepository) {
         this.taskRepository = taskRepository;
@@ -23,5 +24,9 @@ public class TaskService {
     
     public void save(Task task) {
         taskRepository.save(task);
+    }
+    
+    public void detachTask(Long id) {
+        taskRepository.detachTask(id);
     }
 }

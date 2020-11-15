@@ -27,6 +27,7 @@ and open the template in the editor.
         </table>
         
         <form th:action="@{/tasklist}" th:object="${taskForm}" method="post">
+            <input type="hidden" th:field="*{tasklistId}"/>
             <p>
                 title: <input type="text" th:field="*{title}"/>
             </p>

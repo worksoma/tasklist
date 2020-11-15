@@ -29,4 +29,8 @@ public class TasklistService {
     public void save(Tasklist tasklist) {
         tasklistRepository.save(tasklist);
     }
+    
+    public Tasklist getOne(Long id) {
+        return tasklistRepository.getOne(id);
+    }
 }
