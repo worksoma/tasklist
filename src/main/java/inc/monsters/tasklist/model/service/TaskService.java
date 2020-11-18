@@ -3,6 +3,7 @@ package inc.monsters.tasklist.model.service;
 import java.util.List;
 import inc.monsters.tasklist.model.entity.Task;
 import inc.monsters.tasklist.model.repository.TaskRepository;
+import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,7 +13,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class TaskService {
     private TaskRepository taskRepository;
-    private TasklistService tasklistService;
 
     public TaskService(TaskRepository taskRepository) {
         this.taskRepository = taskRepository;
@@ -24,5 +24,9 @@ public class TaskService {
     
     public void save(Task task) {
         taskRepository.save(task);
+    }
+    
+    public Optional<Task> findById(Long id) {
+        return taskRepository.findById(id);
     }
 }
