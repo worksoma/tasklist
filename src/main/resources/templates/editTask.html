@@ -16,7 +16,8 @@ and open the template in the editor.
 
     <body>
         <form th:action="@{/task/save}" th:object="${task}" method="post">
-            <input type="hidden" th:field="*{tasklist.id}"/>
+            <input type="hidden" th:field="*{id}"/>
+            <input type="hidden" th:field="*{tasklistId}"/>
             <p>
                 title: <input type="text" th:field="*{title}"/>
             </p>
