@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -26,5 +27,12 @@ public class TaskController {
         task.ifPresent(taskToEdit -> model.addAttribute("task", taskToEdit));
         
         return "editTask";
+    }
+    
+    @PostMapping("/task/save")
+    public String saveTask() {
+        System.out.println("Testing");
+        
+        return "redirect:/";
     }
 }
