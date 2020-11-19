@@ -39,7 +39,6 @@ public class TaskController {
     
     @PostMapping("/task/save")
     public String saveTask(@ModelAttribute TaskForm taskForm, Model model) {
-        System.out.println("Testing: " + taskForm.getTasklistId() + taskForm.getTitle());
         var tasklistId = taskForm.getTasklistId();
         
         taskService.save(toEntity(taskForm));
