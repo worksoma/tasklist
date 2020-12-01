@@ -52,6 +52,15 @@ public class TaskController {
         return "redirect:/tasklist?id=" + taskForm.getTasklistId();
     }
     
+    @GetMapping("/task/delete")
+    public String deleteTask(@RequestParam(value = "id", required = true) Long id, 
+                             @RequestParam(value = "tasklistId", required = true)Long tasklistId, 
+                             Model model) {
+        taskService.delete(id);
+        
+        return "redirect:/tasklist?id=" + tasklistId;
+    }
+    
     private TaskForm toForm(Task task) {
         return new TaskForm(task.getId(), task.getTitle(), task.getTasklist().getId());
     }
