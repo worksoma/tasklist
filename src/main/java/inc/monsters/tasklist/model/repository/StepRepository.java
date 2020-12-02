@@ -7,6 +7,7 @@ package inc.monsters.tasklist.model.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import inc.monsters.tasklist.model.entity.Step;
+import java.util.List;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -15,5 +16,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface StepRepository extends CrudRepository<Step, Long> {
-    
+    public List<Step> findByTaskId(Long id);
 }
