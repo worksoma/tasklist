@@ -15,15 +15,12 @@ and open the template in the editor.
     </head>
 
     <body>
-        Tasklist:
+        Tasklist: 
         <table>
-            <tr>
-                <th>here</th>
-            </tr>
             <tr th:each="task : ${tasks}">
                 <td th:text="${task.title}">title
                 </td>
-                <td><a th:href="@{/step/edit(id=${task.id})}">Add Step</a></td>
+                <!--<td><a th:href="@{/step/edit(taskId=${task.id})}">Add Step</a></td>-->
                 <td >
                     <a th:href="@{/task/edit(id=${task.id})}">Edit</a>
                 </td>

@@ -10,7 +10,6 @@ import inc.monsters.tasklist.model.service.StepService;
 import inc.monsters.tasklist.form.StepForm;
 import inc.monsters.tasklist.model.service.TaskService;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,15 +27,17 @@ public class StepController {
     private StepForm stepForm;
     private TaskService taskService;
 
-    public StepController(StepService stepService, StepForm stepForm) {
+    public StepController(StepService stepService, StepForm stepForm, TaskService taskService) {
         this.stepService = stepService;
         this.stepForm = stepForm;
+        this.taskService = taskService;
     }
     
     @GetMapping("/step/edit")
-    public String editStep(@RequestParam(value= "id", required = false) Long id, Model model) {
-        Optional<Step> step =  stepService.findById(id);
-        step.ifPresent(stepToEdit -> stepForm = toForm(stepToEdit));
+    public String editStep(@RequestParam(value= "taskId", required = false) Long taskId, Model model) {
+        List<Step> steps =  stepService.findByTaskId(taskId);
+        stepForm.setTaskId(taskId);
+        model.addAttribute("steps", steps);
         model.addAttribute("step", stepForm);
         
         return "editStep";
@@ -50,10 +51,9 @@ public class StepController {
         StepForm newForm = new StepForm();
         newForm.setTaskId(taskId);
         List<Step> steps = stepService.findByTaskId(taskId);
-        model.addAttribute("task", steps);
         model.addAttribute("stepForm", newForm);
         
-        return "editStep";
+        return "redirect:/step/edit?taskId=" + taskId;
     }
     
 //    @GetMapping("/step/delete")
@@ -71,7 +71,9 @@ public class StepController {
         
         step.setId(stepForm.getId());
         step.setDescription(stepForm.getDescription());
-        step.setTask(taskService.getOne(stepForm.getTaskId()));
+        var taskId = stepForm.getTaskId();
+        var task = taskService.getOne(taskId);
+        step.setTask(task);
         
         return step;
     }
