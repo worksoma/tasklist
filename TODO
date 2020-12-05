@@ -1,5 +1,9 @@
-Bootstrap UI
-@Transactional
-Validation
-Liquibase
+-Validation
+-@Transactional
+-JUnit
 
+
+later
+-----
+-Bootstrap
+-Liquibase
