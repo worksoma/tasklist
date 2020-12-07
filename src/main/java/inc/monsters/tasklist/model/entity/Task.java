@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
@@ -29,6 +30,7 @@ public class Task implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank(message = "Titles can not be empty.")
     private String title;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "tasklist_id", nullable = false)

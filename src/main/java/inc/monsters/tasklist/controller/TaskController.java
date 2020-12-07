@@ -6,8 +6,10 @@ import inc.monsters.tasklist.form.TaskForm;
 import inc.monsters.tasklist.model.service.TasklistService;
 import java.util.List;
 import java.util.Optional;
+import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,9 +40,18 @@ public class TaskController {
     }
     
     @PostMapping("/task/save")
-    public String saveTask(@ModelAttribute TaskForm taskForm, Model model) {
+    public String saveTask(@Valid @ModelAttribute("taskForm") TaskForm taskForm, BindingResult bindingResult, Model model) {
         var tasklistId = taskForm.getTasklistId();
-        
+
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("taskForm", taskForm);
+            
+            if (taskForm.getId() == null) {
+                return "redirect:/tasklist?id=" + taskForm.getTasklistId();
+            } else {
+                return editTask(tasklistId, model);
+            }
+        }
         taskService.save(toEntity(taskForm));
         
         TaskForm newForm = new TaskForm();

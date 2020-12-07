@@ -34,6 +34,8 @@ and open the template in the editor.
             <p>
                 title: <input type="text" th:field="*{title}"/>
             </p>
+                <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Email
+                            Error</p>
             <p>
                 <input type="submit" value="Submit"/>
             </p>
