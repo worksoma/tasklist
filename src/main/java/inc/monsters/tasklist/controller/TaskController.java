@@ -34,7 +34,7 @@ public class TaskController {
     @GetMapping("/task/edit")
     public String editTask(@RequestParam(value= "id", required = false) Long id, Model model) {
         Optional<Task> task =  taskService.findById(id);
-        task.ifPresent(taskToEdit -> model.addAttribute("task", toForm(taskToEdit)));
+        task.ifPresent(taskToEdit -> model.addAttribute("taskForm", toForm(taskToEdit)));
         
         return "editTask";
     }
@@ -45,12 +45,8 @@ public class TaskController {
 
         if (bindingResult.hasErrors()) {
             model.addAttribute("taskForm", taskForm);
-            
-            if (taskForm.getId() == null) {
-                return "redirect:/tasklist?id=" + taskForm.getTasklistId();
-            } else {
-                return editTask(tasklistId, model);
-            }
+//            return editTask(tasklistId, model);
+            return "editTask";
         }
         taskService.save(toEntity(taskForm));
         

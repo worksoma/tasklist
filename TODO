@@ -1,9 +1,8 @@
--Validation
 -@Transactional
 -JUnit
-
 
 later
 -----
 -Bootstrap
 -Liquibase
+-Gradle

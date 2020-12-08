@@ -15,12 +15,13 @@ and open the template in the editor.
     </head>
 
     <body>
-        <form th:action="@{/task/save}" th:object="${task}" method="post">
+        <form th:action="@{/task/save}" th:object="${taskForm}" method="post">
             <input type="hidden" th:field="*{id}"/>
             <input type="hidden" th:field="*{tasklistId}"/>
             <p>
                 title: <input type="text" th:field="*{title}"/>
             </p>
+            <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Missing Title</p>
             <p>
                 <input type="submit" value="Submit"/>
             </p>
