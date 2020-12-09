@@ -5,12 +5,14 @@ import inc.monsters.tasklist.model.entity.Task;
 import inc.monsters.tasklist.model.repository.TaskRepository;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author tcurtis
  */
 @Service
+@Transactional
 public class TaskService {
     private TaskRepository taskRepository;
 

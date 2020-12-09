@@ -1,8 +1,11 @@
--@Transactional
 -JUnit
+-Find outdated dependencies (Maven?)
+-HTTP Auth
 
 later
 -----
--Bootstrap
+-VS Code
+-Bootstrap/UI
 -Liquibase
 -Gradle
+-Spring Authentication & Authorization
