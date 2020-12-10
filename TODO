@@ -1,5 +1,5 @@
--JUnit
 -HTTP Auth
+-clean up comments
 
 later
 -----
@@ -8,3 +8,5 @@ later
 -Liquibase
 -Gradle
 -Spring Authentication & Authorization
+-Logging (remove sql in logs)
+-Setup dev vs prod profiles

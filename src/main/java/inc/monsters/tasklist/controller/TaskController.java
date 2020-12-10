@@ -45,7 +45,6 @@ public class TaskController {
 
         if (bindingResult.hasErrors()) {
             model.addAttribute("taskForm", taskForm);
-//            return editTask(tasklistId, model);
             return "editTask";
         }
         taskService.save(toEntity(taskForm));
