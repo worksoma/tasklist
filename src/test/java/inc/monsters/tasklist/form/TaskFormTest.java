@@ -17,7 +17,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class TaskFormTest {
     @Autowired
     Validator validator;
-    TaskForm form;
+    TaskForm form; 
     
     @BeforeEach
     public void init() {
