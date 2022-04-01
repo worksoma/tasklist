@@ -20,7 +20,8 @@ and open the template in the editor.
                 <th>here</th>
             </tr>
             <tr th:each="tasklist : ${tasklists}">
-                <td th:text="${tasklist.title}">title
+                <td>
+                	<a th:href="@{/tasklist(id=${tasklist.id})}"><span th:text="${tasklist.title}"></span></a>
                 </td>
             </tr>
         </table>
