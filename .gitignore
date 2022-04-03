@@ -2,3 +2,6 @@
 /target/
 /nb-configuration.xml
 /.vagrant/
+/bin/
+/.classpath
+/.project
