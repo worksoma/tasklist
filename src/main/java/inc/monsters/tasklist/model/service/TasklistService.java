@@ -33,6 +33,10 @@ public class TasklistService {
     }
     
     public Tasklist getOne(Long id) {
-        return tasklistRepository.getOne(id);
+        return tasklistRepository.getById(id);
+    }
+    
+    public void delete(Long id) {
+    	tasklistRepository.deleteById(id);
     }
 }

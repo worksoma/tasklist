@@ -77,6 +77,11 @@
             <artifactId>liquibase-maven-plugin</artifactId>
             <version>${liquibase.version}</version>
         </dependency>
+        <!-- Needed for deploying on Wildfly -->
+		<dependency>
+			<groupId>org.reactivestreams</groupId>
+			<artifactId>reactive-streams</artifactId>
+		</dependency>
         
         <!-- 3rd party dependencies -->
         <dependency>

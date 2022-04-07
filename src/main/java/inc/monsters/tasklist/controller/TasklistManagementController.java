@@ -8,6 +8,7 @@ import inc.monsters.tasklist.model.entity.Tasklist;
 import inc.monsters.tasklist.model.service.TasklistService;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -41,5 +42,13 @@ private List<Tasklist> tasklists;
         model.addAttribute("tasklists", list);
         
         return "tasklistManagement";
+    }
+    
+    @GetMapping("/tasklistMgmt/delete")
+    public String deleteTask(@RequestParam(value = "id", required = true) Long id, 
+                             Model model) {
+        tasklistService.delete(id);
+        
+        return "redirect:/tasklistMgmt";
     }
 }
