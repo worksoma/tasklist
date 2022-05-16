@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
-import lombok.Data;
 import org.springframework.stereotype.Component;
 
 /**
@@ -20,7 +19,6 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Entity
-@Data
 @Table(name = "tasklists")
 public class Tasklist implements Serializable {
     @Id
@@ -31,4 +29,36 @@ public class Tasklist implements Serializable {
     private String description;
     @OneToMany(mappedBy = "tasklist", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Task> tasks;
+
+    public Long getId() {
+        return id;
+    }
+    
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+    
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
+    }
 }

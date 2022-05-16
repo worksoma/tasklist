@@ -2,18 +2,12 @@ package inc.monsters.tasklist.form;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 /**
  *
  * @author tcurtis
  */
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Component
 public class TaskForm {
     private Long id;
@@ -21,4 +15,38 @@ public class TaskForm {
     private String title;
     @NotNull(message = "Invalid form.")
     private Long tasklistId;
+
+    public TaskForm() {
+    }
+
+    public TaskForm(Long id, @NotBlank(message = "Please enter a title.") String title,
+            @NotNull(message = "Invalid form.") Long tasklistId) {
+        this.id = id;
+        this.title = title;
+        this.tasklistId = tasklistId;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+    
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Long getTasklistId() {
+        return tasklistId;
+    }
+
+    public void setTasklistId(Long tasklistId) {
+        this.tasklistId = tasklistId;
+    }
 }

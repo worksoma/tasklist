@@ -1,8 +1,6 @@
 package inc.monsters.tasklist.controller;
 
 import inc.monsters.tasklist.model.service.TasklistService;
-import inc.monsters.tasklist.model.entity.Tasklist;
-import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  */ 
 @Controller
 public class HomePage {
-    private List<Tasklist> tasklists;
+    // private List<Tasklist> tasklists;
     private TasklistService tasklistService; 
 
     public HomePage(TasklistService tasklistService) {

@@ -10,7 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
-import lombok.Data;
 import org.springframework.stereotype.Component;
 
 /**
@@ -19,7 +18,6 @@ import org.springframework.stereotype.Component;
  */
 @Entity
 @Component
-@Data
 @Table(name = "tasks")
 public class Task implements Serializable {
     @Id
@@ -30,4 +28,28 @@ public class Task implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "tasklist_id", nullable = false)
     private Tasklist tasklist;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Tasklist getTasklist() {
+        return tasklist;
+    }
+
+    public void setTasklist(Tasklist tasklist) {
+        this.tasklist = tasklist;
+    }    
 }
