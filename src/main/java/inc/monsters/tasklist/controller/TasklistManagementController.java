@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class TasklistManagementController {
     
-    private List<Tasklist> tasklists;
     private TasklistService tasklistService;
     private Tasklist tasklist;
 

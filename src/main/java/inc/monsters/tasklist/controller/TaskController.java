@@ -23,12 +23,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class TaskController {
     private final TaskService taskService;
     private final TasklistService tasklistService;
-    private TaskForm taskForm;
 
-    public TaskController(TaskService taskService, TasklistService tasklistService, TaskForm taskForm) {
+    public TaskController(TaskService taskService, TasklistService tasklistService) {
         this.taskService = taskService;
         this.tasklistService = tasklistService;
-        this.taskForm = taskForm;
     }
     
     @GetMapping("/task/edit")
