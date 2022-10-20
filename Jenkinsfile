@@ -19,7 +19,7 @@ pipeline {
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"
 
                 sh "podman build --tag springlist -f ./Dockerfile"
-                sh "podman run --net=host --rm springlist"
+                sh "podman run -dt --net=host --rm springlist"
             }
 
             post {
