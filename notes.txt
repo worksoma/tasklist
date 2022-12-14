@@ -2,3 +2,6 @@
 podman: 
     podman build --tag tasklist -f ./Dockerfile
     podman run -dt --net=host --rm tasklist
+
+docker service:
+	docker run --name tasklist -d --net=host tasklist
