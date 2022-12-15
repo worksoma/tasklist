@@ -27,7 +27,7 @@ pipeline {
             steps {
 		sh 'pwd'
                 sh '''
-                    scp -i ~/.ssh/roz_rsa target/tasklist*.war tcurtis@roz:~/
+                    scp -i ~/.ssh/roz_rsa target/tasklist*.jar tcurtis@roz:~/
 '''
             }
 
