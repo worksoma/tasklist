@@ -18,8 +18,8 @@ pipeline {
                 // To run Maven on a Windows agent, use
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"
 
-                sh "podman build --tag springlist -f ./Dockerfile"
-                sh "podman run -dt --net=host --rm tasklist"
+                // sh "podman build --tag springlist -f ./Dockerfile"
+                // sh "podman run -dt --net=host --rm tasklist"
             }
 	}
         
