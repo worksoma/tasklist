@@ -28,15 +28,6 @@ pipeline {
                 sh '''
                     scp -P 1950 -i ~/.ssh/roz_rsa target/tasklist*.war tcurtis@roz:~/
 '''
-                //ssh -p 1950 -i ~/.ssh/roz_rsa -t -t tcurtis@roz << EOF
-		// rm -r ~/Archive/public_html
-		// cp -r ~/public_html ~/Archive
-		// rm -r ~/public_html
-		// unzip tcurtis.war -d public_html/
-		// sudo systemctl restart tomcat9
-		// exit
-		// EOF
-		//                 '''
             }
 
             post {
@@ -49,3 +40,4 @@ pipeline {
             }
         }
     }
+}
