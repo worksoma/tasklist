@@ -25,6 +25,7 @@ pipeline {
         
         stage('Deploy') {
             steps {
+		sh 'pwd'
                 sh '''
                     scp -i ~/.ssh/roz_rsa target/tasklist*.war tcurtis@roz:~/
 '''
