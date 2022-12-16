@@ -11,7 +11,7 @@ pipeline {
         
         stage('Deploy') {
             steps {
-                sh 'scp -i ~/.ssh/roz_rsa deploy/Dockerfile docker-tasklist.service target/tasklist*.jar tcurtis@roz:~/deploy'
+                sh 'scp -i ~/.ssh/roz_rsa deploy/Dockerfile deploy/docker-tasklist.service target/tasklist*.jar tcurtis@roz:~/deploy'
 
 		withCredentials([string(credentialsId: 'roz-password', variable: 'root-password')]) {
 		    sh 'ansible-play -i roz, deploy/playbook.yml -K $roz-password'
