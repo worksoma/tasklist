@@ -14,7 +14,7 @@ pipeline {
                 sh 'scp -i ~/.ssh/roz_rsa deploy/Dockerfile deploy/docker-tasklist.service target/tasklist*.jar tcurtis@roz:~/deploy'
 
 		withCredentials([string(credentialsId: 'SUDOPASSWD', variable: 'SUDOPASSWD')]) {
-		    sh 'ansible-playbook -i roz, deploy/playbook.yml -K $SUDOPASSWD
+		    sh 'ansible-playbook -i roz, deploy/playbook.yml -K $SUDOPASSWD'
 		}
             }
 
