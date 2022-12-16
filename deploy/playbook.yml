@@ -1,0 +1,12 @@
+---
+
+- name: VM
+  hosts: all
+  become: yes
+  become_user: root
+
+  tasks:
+    - name: test
+      file:
+        path: /tmp/blah
+        state: touch
