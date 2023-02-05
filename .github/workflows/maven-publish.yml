@@ -34,3 +34,7 @@ jobs:
 
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag tasklist:$(date +%s)
+
+    - name: Push docker images
+      run: |
+        docker push ghcr.io/star-capella/tasklist:latest
