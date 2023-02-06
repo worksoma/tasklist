@@ -32,5 +32,9 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ github.token }}
 
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    - name: Build and push the Docker image
+      run: |
+        docker build . --file Dockerfile --tag tasklist:latest
+        docker tag tag tasklist:latest ${{ github.actor }}/tasklist:latest
+        docker login ghcr.io -u ${{ github.actor }} -p ${{ github.token }}
+        docker push ghcr.io/${{ github.actor }}/tasklist:latest
