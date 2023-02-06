@@ -39,8 +39,11 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Build and push the Docker image
-      run: |
-        docker build . --file Dockerfile --tag tasklist:latest
-        docker tag tasklist:latest ghcr.io/${{ github.actor }}/tasklist:latest
-        docker push ghcr.io/${{ github.actor }}/tasklist:latest
+    - name: Build and push
+      uses: docker/build-push-action@v4
+      with:
+        context: .
+        push: true
+        tags: |
+          user/app:latest
+          ghcr.io/${{ github.actor }}/tasklist:latest
