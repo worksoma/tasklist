@@ -32,9 +32,15 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ github.token }}
 
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v2
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Build and push the Docker image
       run: |
         docker build . --file Dockerfile --tag tasklist:latest
         docker tag tasklist:latest ghcr.io/${{ github.actor }}/tasklist:latest
-        docker login ghcr.io -u ${{ github.actor }} -p ${{ github.token }}
         docker push ghcr.io/${{ github.actor }}/tasklist:latest
