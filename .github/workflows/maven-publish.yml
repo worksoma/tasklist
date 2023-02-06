@@ -45,5 +45,5 @@ jobs:
         context: .
         push: true
         tags: |
-          user/app:latest
+          ${{ github.actor }}/tasklist:latest
           ghcr.io/${{ github.actor }}/tasklist:latest
